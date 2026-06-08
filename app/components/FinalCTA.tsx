@@ -1,7 +1,7 @@
-"use client";
+
 
 import { ChevronRight, MapPin } from "lucide-react";
-import { FadeUp } from "./shared";
+import { FadeUp } from "./FadeUp";
 
 export default function FinalCTA() {
   return (

@@ -11,7 +11,7 @@ const syne = Syne({
 
 const inter = Inter({
     subsets: ["latin"],
-    variable: "--font-sans",
+    variable: "--font-body",
 });
 
 export const viewport: Viewport = {

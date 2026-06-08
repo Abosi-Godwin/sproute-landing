@@ -1,7 +1,7 @@
-"use client";
+
 
 import { Check } from "lucide-react";
-import { FadeUp } from "./shared";
+import { FadeUp } from "./FadeUp";
 
 const freeFeatures = [
   "Up to 50 saved leads",

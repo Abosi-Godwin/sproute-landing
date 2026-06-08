@@ -1,6 +1,6 @@
-"use client";
 
-import { FadeUp } from "./shared";
+
+import { FadeUp } from "./FadeUp";
 
 const testimonials = [
   {

@@ -1,4 +1,4 @@
-"use client";
+
 
 import {
   Target,
@@ -9,7 +9,7 @@ import {
   FileText,
   Smartphone,
 } from "lucide-react";
-import { FadeUp } from "./shared";
+import { FadeUp } from "./FadeUp";
 
 const features = [
   {

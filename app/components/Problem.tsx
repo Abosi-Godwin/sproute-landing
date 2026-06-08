@@ -1,7 +1,6 @@
-"use client";
-
 import { Check, X } from "lucide-react";
-import { FadeUp } from "./shared";
+import { FadeUp } from "./FadeUp";
+import { Counter } from "./Counter";
 
 const rows = [
   {
@@ -22,6 +21,13 @@ const rows = [
   },
 ];
 
+const stats = [
+  { target: 20,  suffix: "+", label: "Leads found in 30s"   },
+  { target: 65,  suffix: "",  label: "Words per AI message"  },
+  { target: 3,   suffix: "x", label: "Follow-up sequences"   },
+  { target: 100, suffix: "%", label: "Mobile optimised"      },
+];
+
 export default function Problem() {
   return (
     <section className="py-24 px-6">
@@ -40,44 +46,34 @@ export default function Problem() {
           </p>
         </FadeUp>
 
+        {/* problem vs solution grid */}
         <div className="grid md:grid-cols-2 gap-4">
           {rows.map((row, i) => (
             <FadeUp key={i} delay={i * 0.08}>
               <div className="bg-base-900/60 border border-base-800 rounded-2xl overflow-hidden">
-                {/* bad */}
                 <div className="flex items-start gap-3 p-4 border-b border-base-800">
                   <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-red-500/15 flex items-center justify-center">
                     <X size={11} className="text-red-400" />
                   </div>
-                  <p className="text-base-500 text-sm leading-relaxed">
-                    {row.bad}
-                  </p>
+                  <p className="text-base-500 text-sm leading-relaxed">{row.bad}</p>
                 </div>
-                {/* good */}
                 <div className="flex items-start gap-3 p-4">
                   <div className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-brand-500/15 flex items-center justify-center">
                     <Check size={11} className="text-brand-400" />
                   </div>
-                  <p className="text-base-200 text-sm leading-relaxed font-medium">
-                    {row.good}
-                  </p>
+                  <p className="text-base-200 text-sm leading-relaxed font-medium">{row.good}</p>
                 </div>
               </div>
             </FadeUp>
           ))}
         </div>
 
-        {/* stats strip */}
+        {/* animated stats strip */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center border-t border-base-800/60 pt-14">
-          {[
-            { val: 20, suffix: "+", label: "Leads found in 30s" },
-            { val: 65, suffix: "", label: "Words per AI message" },
-            { val: 3, suffix: "x", label: "Follow-up sequences" },
-            { val: 100, suffix: "%", label: "Mobile optimised" },
-          ].map((s, i) => (
+          {stats.map((s, i) => (
             <FadeUp key={s.label} delay={i * 0.1}>
               <p className="font-display font-800 text-4xl text-brand-400">
-                {s.val}{s.suffix}
+                <Counter target={s.target} suffix={s.suffix} />
               </p>
               <p className="text-base-500 text-sm mt-1">{s.label}</p>
             </FadeUp>
