@@ -1,5 +1,6 @@
- import { ImageResponse } from "next/og";
+import { ImageResponse } from "next/og";
 
+export const runtime = "edge";
 export const alt = "Sproute — Find Local Businesses & Land Clients";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -10,14 +11,7 @@ const leads = [
   { name: "Goodness Boutique",   cat: "Clothing", score: "7/10",  hot: false },
 ];
 
-export default async function OGImage() {
-  const font = await fetch(
-    new URL("https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap")
-  ).then(() =>
-    fetch(
-      "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ek-_EeA.woff2"
-    ).then((r) => r.arrayBuffer())
-  );
+export default function OGImage() {
 
   return new ImageResponse(
     (
@@ -179,9 +173,6 @@ export default async function OGImage() {
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [{ name: "Inter", data: font, style: "normal", weight: 800 }],
-    }
+    { ...size }
   );
 }
