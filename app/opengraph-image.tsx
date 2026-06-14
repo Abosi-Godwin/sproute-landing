@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-export const alt = "Sproute — Find Local Businesses & Land Clients on WhatsApp";
+export const alt = "Sproute — Find Local Businesses & Land Clients";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -11,7 +10,15 @@ const leads = [
   { name: "Goodness Boutique",   cat: "Clothing", score: "7/10",  hot: false },
 ];
 
-export default function OGImage() {
+export default async function OGImage() {
+  const font = await fetch(
+    new URL("https://fonts.googleapis.com/css2?family=Inter:wght@700;800&display=swap")
+  ).then(() =>
+    fetch(
+      "https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ek-_EeA.woff2"
+    ).then((r) => r.arrayBuffer())
+  );
+
   return new ImageResponse(
     (
       <div
@@ -23,7 +30,7 @@ export default function OGImage() {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "64px 72px",
-          fontFamily: "system-ui, sans-serif",
+          fontFamily: "Inter, sans-serif",
           position: "relative",
           overflow: "hidden",
         }}
@@ -43,7 +50,7 @@ export default function OGImage() {
           }}
         />
 
-        {/* grid lines */}
+        {/* grid */}
         <div
           style={{
             position: "absolute",
@@ -54,7 +61,7 @@ export default function OGImage() {
           }}
         />
 
-        {/* left — copy */}
+        {/* left */}
         <div style={{ display: "flex", flexDirection: "column", flex: 1, zIndex: 1 }}>
           {/* logo */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "40px" }}>
@@ -72,9 +79,7 @@ export default function OGImage() {
             >
               🌱
             </div>
-            <span style={{ color: "#f1f5f9", fontSize: "28px", fontWeight: 800 }}>
-              Sproute
-            </span>
+            <span style={{ color: "#f1f5f9", fontSize: "28px", fontWeight: 800 }}>Sproute</span>
           </div>
 
           {/* headline */}
@@ -87,12 +92,10 @@ export default function OGImage() {
             </span>
           </div>
 
-          {/* subtext */}
           <p style={{ color: "#64748b", fontSize: "20px", lineHeight: 1.5, maxWidth: "440px", margin: 0 }}>
             AI-powered WhatsApp outreach for freelancers targeting local businesses.
           </p>
 
-          {/* pills */}
           <div style={{ display: "flex", gap: "10px", marginTop: "32px" }}>
             {["Free forever", "No credit card", "Works on mobile"].map((t) => (
               <div
@@ -113,7 +116,7 @@ export default function OGImage() {
           </div>
         </div>
 
-        {/* right — dashboard card */}
+        {/* right — dashboard */}
         <div
           style={{
             width: "370px",
@@ -122,47 +125,25 @@ export default function OGImage() {
             borderRadius: "20px",
             overflow: "hidden",
             zIndex: 1,
-            boxShadow: "0 25px 60px rgba(0,0,0,0.5), 0 0 60px rgba(16,185,129,0.1)",
+            boxShadow: "0 25px 60px rgba(0,0,0,0.5)",
           }}
         >
-          {/* browser chrome */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "6px",
-              padding: "12px 16px",
-              borderBottom: "1px solid #1e293b",
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: "6px", padding: "12px 16px", borderBottom: "1px solid #1e293b" }}>
             <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "rgba(239,68,68,0.7)" }} />
             <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "rgba(234,179,8,0.7)" }} />
             <div style={{ width: "10px", height: "10px", borderRadius: "50%", background: "rgba(16,185,129,0.7)" }} />
             <span style={{ marginLeft: "auto", color: "#475569", fontSize: "11px" }}>sproute-rho.vercel.app</span>
           </div>
 
-          {/* stats */}
           <div style={{ display: "flex", borderBottom: "1px solid #1e293b" }}>
             {[{ l: "Saved", v: "200" }, { l: "Messaged", v: "18" }, { l: "Replied", v: "6" }].map((s) => (
-              <div
-                key={s.l}
-                style={{
-                  flex: 1,
-                  padding: "10px 8px",
-                  textAlign: "center",
-                  borderRight: "1px solid #1e293b",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
+              <div key={s.l} style={{ flex: 1, padding: "10px 8px", textAlign: "center", borderRight: "1px solid #1e293b", display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <span style={{ color: "#64748b", fontSize: "11px" }}>{s.l}</span>
                 <span style={{ color: "#f8fafc", fontSize: "20px", fontWeight: 700, marginTop: "2px" }}>{s.v}</span>
               </div>
             ))}
           </div>
 
-          {/* leads */}
           <div style={{ padding: "10px", display: "flex", flexDirection: "column", gap: "6px" }}>
             {leads.map((l) => (
               <div
@@ -183,26 +164,13 @@ export default function OGImage() {
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                   <span style={{ color: "#34d399", fontSize: "12px", fontWeight: 700 }}>{l.score}</span>
-                  <span style={{ color: "#475569", fontSize: "10px", marginTop: "2px" }}>{l.hot ? "🔥 Hot" : "⚡ Warm"}</span>
+                  <span style={{ color: "#475569", fontSize: "10px", marginTop: "2px" }}>{l.hot ? "Hot" : "Warm"}</span>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* ai badge */}
-          <div
-            style={{
-              margin: "0 10px 10px",
-              padding: "10px 12px",
-              background: "rgba(16,185,129,0.08)",
-              border: "1px solid rgba(16,185,129,0.2)",
-              borderRadius: "12px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <span style={{ fontSize: "13px" }}>✨</span>
+          <div style={{ margin: "0 10px 10px", padding: "10px 12px", background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: "12px", display: "flex", alignItems: "center", gap: "8px" }}>
             <span style={{ color: "#94a3b8", fontSize: "11px" }}>
               <span style={{ color: "#34d399", fontWeight: 600 }}>AI message ready</span>
               {" — \"Hey TopView, noticed your listing…\""}
@@ -211,6 +179,9 @@ export default function OGImage() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [{ name: "Inter", data: font, style: "normal", weight: 800 }],
+    }
   );
 }
