@@ -6,18 +6,18 @@ import { SITE_URL, SITE_META } from "@/lib/config";
 const syne = Syne({
     subsets: ["latin"],
     variable: "--font-display",
-    weight: ["600", "700", "800"],
+    weight: ["600", "700", "800"]
 });
 
 const inter = Inter({
     subsets: ["latin"],
-    variable: "--font-sans",
+    variable: "--font-sans"
 });
 
 export const viewport: Viewport = {
     width: "device-width",
     initialScale: 1,
-    themeColor: "#10b981",
+    themeColor: "#10b981"
 };
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
     title: {
         default: SITE_META.title,
-        template: SITE_META.titleTemplate,
+        template: SITE_META.titleTemplate
     },
     description: SITE_META.description,
     keywords: SITE_META.keywords,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     category: "technology",
 
     alternates: {
-        canonical: SITE_URL,
+        canonical: SITE_URL
     },
 
     openGraph: {
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
                 width: 1200,
                 height: 630,
                 alt: "Sproute — Find Local Businesses & Land Clients on WhatsApp",
-                type: "image/png",
-            },
-        ],
+                type: "image/png"
+            }
+        ]
     },
 
     twitter: {
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
         creator: SITE_META.twitterHandle,
         title: SITE_META.title,
         description: SITE_META.description,
-        images: [SITE_META.ogImage],
+        images: [SITE_META.ogImage]
     },
 
     robots: {
@@ -73,37 +73,46 @@ export const metadata: Metadata = {
             follow: true,
             "max-video-preview": -1,
             "max-image-preview": "large",
-            "max-snippet": -1,
-        },
+            "max-snippet": -1
+        }
     },
 
     manifest: "/site.webmanifest",
 
     icons: {
         icon: [
-            { url: "/favicon.ico",              sizes: "any"     },
-            { url: "/favicon.svg",              type: "image/svg+xml" },
-            { url: "/favicon-16x16.png",        sizes: "16x16",  type: "image/png" },
-            { url: "/favicon-32x32.png",        sizes: "32x32",  type: "image/png" },
-            { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-            { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+            { url: "/favicon.ico", sizes: "any" },
+            { url: "/favicon.svg", type: "image/svg+xml" },
+            { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+            { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+            {
+                url: "/android-chrome-192x192.png",
+                sizes: "192x192",
+                type: "image/png"
+            },
+            {
+                url: "/android-chrome-512x512.png",
+                sizes: "512x512",
+                type: "image/png"
+            }
         ],
         apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-        shortcut: "/favicon.ico",
+        shortcut: "/favicon.ico"
     },
 
-    // verification: {
-    //     google: "your-google-search-console-token",
-    // },
+    verification: {
+        google: "8wKxFBoxKbThGGJsFMXBoid6P9uWONt00GcfrWKw0BU"
+    }
 };
 
 export default function RootLayout({
-    children,
+    children
 }: {
     children: React.ReactNode;
 }) {
     return (
         <html lang="en-NG" className={`${syne.variable} ${inter.variable}`}>
+             
             <body>{children}</body>
         </html>
     );
