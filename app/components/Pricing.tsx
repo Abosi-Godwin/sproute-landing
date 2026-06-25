@@ -77,7 +77,7 @@ export default function Pricing() {
                 <div className="flex items-center justify-between mb-1">
                   <p className="text-base-400 text-sm font-medium">Pro</p>
                   <span className="text-xs bg-brand-500/15 text-brand-400 border border-brand-500/30 px-2 py-0.5 rounded-full">
-                    Coming soon
+                    Popular
                   </span>
                 </div>
                 <p className="font-display font-800 text-4xl text-base-50 mb-1">
@@ -96,10 +96,10 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href="https://sproute-rho.vercel.app"
+                  href="https://paystack.shop/pay/u00f3ooq4x"
                   className="block text-center bg-brand-500 hover:bg-brand-400 text-white py-3 rounded-xl text-sm font-medium transition-all duration-200 hover:shadow-lg hover:shadow-brand-500/25 hover:-translate-y-0.5"
                 >
-                  Start with Free
+                  Start with pro
                 </a>
               </div>
             </div>
