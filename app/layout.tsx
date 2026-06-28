@@ -3,6 +3,8 @@ import { Syne, Inter } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, SITE_META } from "@/lib/config";
 
+import PostHogProvider from "./components/PostHogProvider";
+import { Analytics } from "@vercel/analytics/react";
 const syne = Syne({
     subsets: ["latin"],
     variable: "--font-display",
@@ -112,8 +114,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en-NG" className={`${syne.variable} ${inter.variable}`}>
-             
-            <body>{children}</body>
+            <body>
+                <PostHogProvider>{children}</PostHogProvider>
+                <Analytics />
+            </body>
         </html>
     );
 }

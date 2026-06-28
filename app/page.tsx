@@ -24,7 +24,7 @@ export default function Home() {
             <main className="min-h-screen bg-base-950 text-base-100 overflow-x-hidden">
                 <GlobalKeyframes />
 
-                {/* noise texture */}
+              
                 <div
                     className="pointer-events-none fixed inset-0 z-0 opacity-[0.03]"
                     style={{
