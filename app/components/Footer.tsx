@@ -82,7 +82,20 @@ export default function Footer() {
                         </div>
                     ))}
                 </div>
-
+                <div>
+                    <a
+                        href="https://listmaro.com"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <img
+                            src="https://listmaro.com/badge.svg"
+                            alt="Listed on List Maro"
+                            width="148"
+                            height="40"
+                        />
+                    </a>
+                </div>
                 {/* bottom row */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-base-800">
                     <p className="text-base-600 text-xs">
